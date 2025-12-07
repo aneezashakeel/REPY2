@@ -1,0 +1,16 @@
+
+for fn in ("persist.txt", "persist.txt.a", "persist.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
+
+h = ABopenfile("persist.txt", True)
+h.writeat("SHOW", 0)
+h.close()
+
+h = ABopenfile("persist.txt", False)
+h.writeat("ME", 4)
+h.close()
+
+r = ABopenfile("persist.txt", False)
+r.readat(6, 0)
+r.close()
