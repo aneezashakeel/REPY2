@@ -1,19 +1,15 @@
-for fn in ("len.txt", "len.txt.a", "len.txt.b"):
+for fn in ("big.txt", "big.txt.a", "big.txt.b"):
     if fn in listfiles():
         removefile(fn)
 
-h = ABopenfile("len.txt", True)
+h = ABopenfile("big.txt", True)
 h.writeat("SAFE", 0)
 h.close()
 
-h = ABopenfile("len.txt", False)
-h.writeat("LONGDATA", 0)
+h = ABopenfile("big.txt", True)
+h.writeat("SLONGDATAE", 999999)
 h.close()
 
-h = ABopenfile("len.txt", False)
-h.writeat("SHORT", 0)
-h.close()
-
-r = ABopenfile("len.txt", False)
-d = r.readat(None, 0)
+r = ABopenfile("big.txt", False)
+d = r.readat(10, 999999)
 r.close()
