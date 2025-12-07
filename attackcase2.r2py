@@ -1,4 +1,3 @@
-
 for fn in ("race.txt", "race.txt.a", "race.txt.b"):
     if fn in listfiles():
         removefile(fn)
