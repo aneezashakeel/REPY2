@@ -1,16 +1,20 @@
-
-for fn in ("persist.txt", "persist.txt.a", "persist.txt.b"):
+for fn in ("grow.txt", "grow.txt.a", "grow.txt.b"):
     if fn in listfiles():
         removefile(fn)
 
-h = ABopenfile("persist.txt", True)
-h.writeat("SHOW", 0)
+h = ABopenfile("grow.txt", True)
+h.writeat("S", 0)
+h.writeat("E", 1)
 h.close()
 
-h = ABopenfile("persist.txt", False)
-h.writeat("ME", 4)
+h = ABopenfile("grow.txt", False)
+h.writeat("LONGERDATAE", 0)
 h.close()
 
-r = ABopenfile("persist.txt", False)
-r.readat(6, 0)
+h = ABopenfile("grow.txt", False)
+h.writeat("SE", 0)
+h.close()
+
+r = ABopenfile("grow.txt", False)
+d = r.readat(None, 0)
 r.close()
