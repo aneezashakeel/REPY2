@@ -1,0 +1,15 @@
+
+for fn in ("bigfile.txt", "bigfile.txt.a", "bigfile.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
+
+h = ABopenfile("bigfile.txt", True)
+h.close()
+
+h = ABopenfile("bigfile.txt", True)
+h.writeat("SLARGEE", 8888888)
+h.close()
+
+r = ABopenfile("bigfile.txt", False)
+r.readat(7, 8888888)
+r.close()
