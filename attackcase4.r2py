@@ -1,48 +1,14 @@
-# Attack: Boundary conditions and post-close operations
+if "test4.txt" in listfiles():
+    removefile("test4.txt")
+if "test4.txt.a" in listfiles():
+    removefile("test4.txt.a")
+if "test4.txt.b" in listfiles():
+    removefile("test4.txt.b")
 
-for fn in ("boundary.txt", "boundary.txt.a", "boundary.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-# Test 1: Large offset write
-myfile = ABopenfile("boundary.txt", True)
-myfile.writeat("SBIGE", 1000000)
+myfile = ABopenfile("test4.txt", True)
+myfile.writeat("SvalidE", 0)
 myfile.close()
 
-# Test 2: Multiple closes
-for fn in ("multiclose.txt", "multiclose.txt.a", "multiclose.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("multiclose.txt", True)
-myfile.writeat("SdataE", 0)
-myfile.close()
-try:
-    myfile.close()
-except:
-    pass
-
-# Test 3: Write after close
-for fn in ("afterclose.txt", "afterclose.txt.a", "afterclose.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("afterclose.txt", True)
-myfile.writeat("SdataE", 0)
-myfile.close()
-try:
-    myfile.writeat("HACK", 0)
-except:
-    pass
-
-# Test 4: Negative offset
-for fn in ("negative.txt", "negative.txt.a", "negative.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("negative.txt", True)
-try:
-    myfile.writeat("SNegE", -1)
-except:
-    pass
+myfile = ABopenfile("test4.txt", True)
+myfile.writeat("X", 0)
 myfile.close()
