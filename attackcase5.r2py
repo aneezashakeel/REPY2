@@ -1,10 +1,14 @@
-if "space1.txt" in listfiles():
-    removefile("space1.txt")
-if "space1.txt.a" in listfiles():
-    removefile("space1.txt.a")
-if "space1.txt.b" in listfiles():
-    removefile("space1.txt.b")
+if "big.txt" in listfiles():
+    removefile("big.txt")
+if "big.txt.a" in listfiles():
+    removefile("big.txt.a")
+if "big.txt.b" in listfiles():
+    removefile("big.txt.b")
 
-myfile = ABopenfile("space1.txt", True)
-myfile.writeat(" SdataE", 0)
+myfile = ABopenfile("big.txt", True)
+myfile.writeat("SdataE", 0)
+myfile.close()
+
+myfile = ABopenfile("big.txt", True)
+myfile.writeat("invalid", 1000)
 myfile.close()
