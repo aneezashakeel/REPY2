@@ -1,14 +1,11 @@
-if "big.txt" in listfiles():
-    removefile("big.txt")
-if "big.txt.a" in listfiles():
-    removefile("big.txt.a")
-if "big.txt.b" in listfiles():
-    removefile("big.txt.b")
+if "e.txt" in listfiles():
+    removefile("e.txt")
+if "e.txt.a" in listfiles():
+    removefile("e.txt.a")
+if "e.txt.b" in listfiles():
+    removefile("e.txt.b")
 
-myfile = ABopenfile("big.txt", True)
-myfile.writeat("SdataE", 0)
-myfile.close()
-
-myfile = ABopenfile("big.txt", True)
-myfile.writeat("invalid", 1000)
+myfile = ABopenfile("e.txt", True)
+myfile.writeat("SE", 0)
+myfile.writeat("XXXX", 5)
 myfile.close()
