@@ -1,0 +1,14 @@
+if "over1.txt" in listfiles():
+    removefile("over1.txt")
+if "over1.txt.a" in listfiles():
+    removefile("over1.txt.a")
+if "over1.txt.b" in listfiles():
+    removefile("over1.txt.b")
+
+myfile = ABopenfile("over1.txt", True)
+myfile.writeat("SvalidE", 0)
+myfile.close()
+
+myfile = ABopenfile("over1.txt", True)
+myfile.writeat("X", 0)
+myfile.close()
