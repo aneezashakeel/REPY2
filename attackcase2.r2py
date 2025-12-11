@@ -1,18 +1,10 @@
-# Attack: Test space restriction - SILENT VERSION
+if "test2.txt" in listfiles():
+    removefile("test2.txt")
+if "test2.txt.a" in listfiles():
+    removefile("test2.txt.a")
+if "test2.txt.b" in listfiles():
+    removefile("test2.txt.b")
 
-for fn in ("sp1.txt", "sp1.txt.a", "sp1.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("sp1.txt", True)
-myfile.writeat(" starts", 0)
-myfile.close()
-
-for fn in ("sp2.txt", "sp2.txt.a", "sp2.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("sp2.txt", True)
-myfile.writeat("S", 0)
-myfile.writeat(" middle", 1)
+myfile = ABopenfile("test2.txt", True)
+myfile.writeat(" space", 0)
 myfile.close()
