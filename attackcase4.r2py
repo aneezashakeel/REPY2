@@ -1,12 +1,15 @@
-if "multi1.txt" in listfiles():
-    removefile("multi1.txt")
-if "multi1.txt.a" in listfiles():
-    removefile("multi1.txt.a")
-if "multi1.txt.b" in listfiles():
-    removefile("multi1.txt.b")
+if "ext.txt" in listfiles():
+    removefile("ext.txt")
+if "ext.txt.a" in listfiles():
+    removefile("ext.txt.a")
+if "ext.txt.b" in listfiles():
+    removefile("ext.txt.b")
 
-myfile = ABopenfile("multi1.txt", True)
+myfile = ABopenfile("ext.txt", True)
 myfile.writeat("S", 0)
-myfile.writeat("data", 1)
-myfile.writeat("X", 5)
+myfile.writeat("E", 5)
+myfile.close()
+
+myfile = ABopenfile("ext.txt", True)
+myfile.writeat("toolong", 10)
 myfile.close()
