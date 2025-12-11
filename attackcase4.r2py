@@ -1,14 +1,15 @@
-if "x4.txt" in listfiles():
-    removefile("x4.txt")
-if "x4.txt.a" in listfiles():
-    removefile("x4.txt.a")
-if "x4.txt.b" in listfiles():
-    removefile("x4.txt.b")
+if "t4.txt" in listfiles():
+    removefile("t4.txt")
+if "t4.txt.a" in listfiles():
+    removefile("t4.txt.a")
+if "t4.txt.b" in listfiles():
+    removefile("t4.txt.b")
 
-myfile = ABopenfile("x4.txt", True)
-myfile.writeat("SXXXXXXE", 0)
+myfile = ABopenfile("t4.txt", True)
+myfile.writeat("S", 0)
+myfile.writeat("E", 100)
 myfile.close()
 
-myfile = ABopenfile("x4.txt", True)
-myfile.writeat("Z", 8)
+myfile = ABopenfile("t4.txt", True)
+myfile.writeat("SshortE", 0)
 myfile.close()
