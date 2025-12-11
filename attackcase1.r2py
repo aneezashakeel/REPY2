@@ -1,25 +1,36 @@
-def main():
-    try:
-        for fn in ("f1.txt", "f1.txt.a", "f1.txt.b"):
-            if fn in listfiles():
-                removefile(fn)
+# Attack: Test invalid file validation (S and E requirements)
 
-        # Create file
-        f = ABopenfile("f1.txt", True)
-        f.close()
+for fn in ("invalid.txt", "invalid.txt.a", "invalid.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
 
-        # Write VALID but huge payload
-        f = ABopenfile("f1.txt", False)
-        f.writeat("S" + "X"*200 + "E", 0)  # VALID but long
-        f.close()
+# Test 1: File not starting with S
+myfile = ABopenfile("invalid.txt", True)
+myfile.writeat("XdataE", 0)
+myfile.close()
 
-        # Now overwrite beginning with VALID short payload
-        f = ABopenfile("f1.txt", False)
-        f.writeat("SE", 0)  # tiny but valid
-        f.close()
+# Test 2: File not ending with E
+for fn in ("invalid2.txt", "invalid2.txt.a", "invalid2.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
 
-        return True  # Should pass vulnerable, fail hardened
-    except:
-        return False
+myfile = ABopenfile("invalid2.txt", True)
+myfile.writeat("SdataX", 0)
+myfile.close()
 
-main()
+# Test 3: Lowercase s and e (should be invalid)
+for fn in ("invalid3.txt", "invalid3.txt.a", "invalid3.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
+
+myfile = ABopenfile("invalid3.txt", True)
+myfile.writeat("sdataE", 0)
+myfile.close()
+
+# Test 4: Empty file
+for fn in ("empty.txt", "empty.txt.a", "empty.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
+
+myfile = ABopenfile("empty.txt", True)
+myfile.close()
