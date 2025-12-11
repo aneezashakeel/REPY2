@@ -1,14 +1,12 @@
-if "test4.txt" in listfiles():
-    removefile("test4.txt")
-if "test4.txt.a" in listfiles():
-    removefile("test4.txt.a")
-if "test4.txt.b" in listfiles():
-    removefile("test4.txt.b")
+if "multi1.txt" in listfiles():
+    removefile("multi1.txt")
+if "multi1.txt.a" in listfiles():
+    removefile("multi1.txt.a")
+if "multi1.txt.b" in listfiles():
+    removefile("multi1.txt.b")
 
-myfile = ABopenfile("test4.txt", True)
-myfile.writeat("SvalidE", 0)
-myfile.close()
-
-myfile = ABopenfile("test4.txt", True)
-myfile.writeat("X", 0)
+myfile = ABopenfile("multi1.txt", True)
+myfile.writeat("S", 0)
+myfile.writeat("data", 1)
+myfile.writeat("X", 5)
 myfile.close()
