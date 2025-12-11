@@ -1,12 +1,14 @@
-if "test4.txt" in listfiles():
-    removefile("test4.txt")
-if "test4.txt.a" in listfiles():
-    removefile("test4.txt.a")
-if "test4.txt.b" in listfiles():
-    removefile("test4.txt.b")
+if "d.txt" in listfiles():
+    removefile("d.txt")
+if "d.txt.a" in listfiles():
+    removefile("d.txt.a")
+if "d.txt.b" in listfiles():
+    removefile("d.txt.b")
 
-myfile = ABopenfile("test4.txt", True)
-myfile.writeat("S", 0)
-myfile.writeat("X", 5)
-myfile.writeat("E", 3)
+myfile = ABopenfile("d.txt", True)
+myfile.writeat("SHORT", 0)
+myfile.close()
+
+myfile = ABopenfile("d.txt", True)
+myfile.writeat("SVERYLONGDATAX", 0)
 myfile.close()
