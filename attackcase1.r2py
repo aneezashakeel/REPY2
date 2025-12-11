@@ -1,25 +1,10 @@
-# Attack: Test invalid S/E patterns - SILENT VERSION
+if "test1.txt" in listfiles():
+    removefile("test1.txt")
+if "test1.txt.a" in listfiles():
+    removefile("test1.txt.a")
+if "test1.txt.b" in listfiles():
+    removefile("test1.txt.b")
 
-for fn in ("inv1.txt", "inv1.txt.a", "inv1.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("inv1.txt", True)
-myfile.writeat("XdataE", 0)
-myfile.close()
-
-for fn in ("inv2.txt", "inv2.txt.a", "inv2.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("inv2.txt", True)
-myfile.writeat("SdataX", 0)
-myfile.close()
-
-for fn in ("inv3.txt", "inv3.txt.a", "inv3.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("inv3.txt", True)
-myfile.writeat("sdataE", 0)
+myfile = ABopenfile("test1.txt", True)
+myfile.writeat("XinvalidX", 0)
 myfile.close()
