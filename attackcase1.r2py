@@ -1,14 +1,15 @@
-if "x1.txt" in listfiles():
-    removefile("x1.txt")
-if "x1.txt.a" in listfiles():
-    removefile("x1.txt.a")
-if "x1.txt.b" in listfiles():
-    removefile("x1.txt.b")
+if "t.txt" in listfiles():
+    removefile("t.txt")
+if "t.txt.a" in listfiles():
+    removefile("t.txt.a")
+if "t.txt.b" in listfiles():
+    removefile("t.txt.b")
 
-myfile = ABopenfile("x1.txt", True)
-myfile.writeat("SvalidE", 0)
+myfile = ABopenfile("t.txt", True)
+myfile.writeat("SE", 0)
 myfile.close()
 
-myfile = ABopenfile("x1.txt", True)
-myfile.writeat("XXXXX", 7)
+myfile = ABopenfile("t.txt", True)
+myfile.writeat("SdataE", 0)
+myfile.writeat("X", 6)
 myfile.close()
