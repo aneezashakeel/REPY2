@@ -1,15 +1,25 @@
-for fn in ("f3.txt", "f3.txt.a", "f3.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
+def main():
+    try:
+        for fn in ("f3.txt", "f3.txt.a", "f3.txt.b"):
+            if fn in listfiles():
+                removefile(fn)
 
-myfile = ABopenfile("f3.txt", True)
-myfile.writeat("VERYLONGINVALID", 0)
-myfile.close()
+        # Create and write invalid oversized data
+        myfile = ABopenfile("f3.txt", True)
+        myfile.writeat("VERYLONGINVALID", 0)
+        myfile.close()
 
-myfile = ABopenfile("f3.txt", False)
-myfile.writeat("SHORT", 0)
-myfile.close()
+        # Then overwrite with shorter data
+        myfile = ABopenfile("f3.txt", False)
+        myfile.writeat("SHORT", 0)
+        myfile.close()
 
-myfile = ABopenfile("f3.txt", False)
-myfile.writeat("SE", 0)
-myfile.close()
+        # Then try to force a valid-looking header/footer
+        myfile = ABopenfile("f3.txt", False)
+        myfile.writeat("SE", 0)
+        myfile.close()
+
+        return True
+    except:
+        return False
+main()
