@@ -1,40 +1,27 @@
-# Attack: Direct file access and race conditions
+# Attack: Race conditions - SILENT VERSION
 
-for fn in ("direct.txt", "direct.txt.a", "direct.txt.b"):
+for fn in ("rc1.txt", "rc1.txt.a", "rc1.txt.b"):
     if fn in listfiles():
         removefile(fn)
 
-# Test 1: Try to open .a file directly
-myfile = ABopenfile("direct.txt", True)
-myfile.writeat("SvalidE", 0)
+myfile = ABopenfile("rc1.txt", True)
 myfile.close()
 
-try:
-    a_file = ABopenfile("direct.txt.a", False)
-    a_file.readat(10, 0)
-    a_file.close()
-except:
-    pass
+h1 = ABopenfile("rc1.txt", True)
+h2 = ABopenfile("rc1.txt", True)
+h1.writeat("SvalidE", 0)
+h2.writeat("XbadX", 0)
+h1.close()
+h2.close()
 
-# Test 2: Try to open .b file directly
-try:
-    b_file = ABopenfile("direct.txt.b", False)
-    b_file.readat(10, 0)
-    b_file.close()
-except:
-    pass
-
-# Test 3: Race condition with multiple handles
-for fn in ("race.txt", "race.txt.a", "race.txt.b"):
+for fn in ("rc2.txt", "rc2.txt.a", "rc2.txt.b"):
     if fn in listfiles():
         removefile(fn)
 
-init = ABopenfile("race.txt", True)
-init.close()
+myfile = ABopenfile("rc2.txt", True)
+myfile.writeat("SdataE", 0)
+myfile.close()
 
-h1 = ABopenfile("race.txt", True)
-h2 = ABopenfile("race.txt", True)
-h1.writeat("SdataE", 0)
-h2.writeat("XinvalidX", 0)
-h1.close()
-h2.close()
+myfile = ABopenfile("rc2.txt", False)
+myfile.writeat("X", 0)
+myfile.close()
