@@ -1,15 +1,11 @@
-if "flen.txt" in listfiles():
-    removefile("flen.txt")
-if "flen.txt.a" in listfiles():
-    removefile("flen.txt.a")
-if "flen.txt.b" in listfiles():
-    removefile("flen.txt.b")
+if "test.txt" in listfiles():
+    removefile("test.txt")
+if "test.txt.a" in listfiles():
+    removefile("test.txt.a")
+if "test.txt.b" in listfiles():
+    removefile("test.txt.b")
 
-myfile = ABopenfile("flen.txt", True)
-myfile.writeat("SvalidE", 0)
-myfile.close()
-
-myfile = ABopenfile("flen.txt", True)
-myfile.writeat("X", 0)
-myfile.writeat("Y", 10)
+myfile = ABopenfile("test.txt", True)
+myfile.writeat("SE", 0)
+myfile.writeat("X", 10)
 myfile.close()
