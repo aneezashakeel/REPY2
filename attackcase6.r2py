@@ -1,14 +1,10 @@
-if "diff.txt" in listfiles():
-    removefile("diff.txt")
-if "diff.txt.a" in listfiles():
-    removefile("diff.txt.a")
-if "diff.txt.b" in listfiles():
-    removefile("diff.txt.b")
+if "f.txt" in listfiles():
+    removefile("f.txt")
+if "f.txt.a" in listfiles():
+    removefile("f.txt.a")
+if "f.txt.b" in listfiles():
+    removefile("f.txt.b")
 
-myfile = ABopenfile("diff.txt", True)
-myfile.writeat("ShortE", 0)
-myfile.close()
-
-myfile = ABopenfile("diff.txt", True)
-myfile.writeat("XMuchLongerInvalidDataX", 0)
+myfile = ABopenfile("f.txt", True)
+myfile.writeat(" SE", 0)
 myfile.close()
