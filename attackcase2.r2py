@@ -1,26 +1,33 @@
-def main():
-    try:
-        for fn in ("race.txt", "race.txt.a", "race.txt.b"):
-            if fn in listfiles():
-                removefile(fn)
+# Attack: Test space restriction and overwriting
 
-        # Create file
-        base = ABopenfile("race.txt", True)
-        base.close()
+for fn in ("space.txt", "space.txt.a", "space.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
 
-        # Two simultaneous handles
-        h1 = ABopenfile("race.txt", False)
-        h2 = ABopenfile("race.txt", False)
+# Test 1: Write data starting with space
+myfile = ABopenfile("space.txt", True)
+myfile.writeat(" SpaceStart", 0)
+myfile.close()
 
-        # VALID writes but conflicting
-        h1.writeat("S1111E", 0)
-        h2.writeat("S2222E", 0)
+# Test 2: Valid then overwrite to invalid
+for fn in ("overwrite.txt", "overwrite.txt.a", "overwrite.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
 
-        h1.close()
-        h2.close()
+myfile = ABopenfile("overwrite.txt", True)
+myfile.writeat("SvalidE", 0)
+myfile.close()
 
-        return True
-    except:
-        return False
+myfile = ABopenfile("overwrite.txt", False)
+myfile.writeat("X", 0)
+myfile.close()
 
-main()
+# Test 3: Append after E
+for fn in ("append.txt", "append.txt.a", "append.txt.b"):
+    if fn in listfiles():
+        removefile(fn)
+
+myfile = ABopenfile("append.txt", True)
+myfile.writeat("SdataE", 0)
+myfile.writeat("XXX", 6)
+myfile.close()
