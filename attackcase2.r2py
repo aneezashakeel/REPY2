@@ -1,12 +1,14 @@
-if "gap1.txt" in listfiles():
-    removefile("gap1.txt")
-if "gap1.txt.a" in listfiles():
-    removefile("gap1.txt.a")
-if "gap1.txt.b" in listfiles():
-    removefile("gap1.txt.b")
+if "len2.txt" in listfiles():
+    removefile("len2.txt")
+if "len2.txt.a" in listfiles():
+    removefile("len2.txt.a")
+if "len2.txt.b" in listfiles():
+    removefile("len2.txt.b")
 
-myfile = ABopenfile("gap1.txt", True)
-myfile.writeat("S", 0)
-myfile.writeat("middle", 100)
-myfile.writeat("E", 200)
+myfile = ABopenfile("len2.txt", True)
+myfile.writeat("SstartE", 0)
+myfile.close()
+
+myfile = ABopenfile("len2.txt", True)
+myfile.writeat("invaliddata", 20)
 myfile.close()
