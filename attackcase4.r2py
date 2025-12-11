@@ -1,15 +1,12 @@
-if "ext.txt" in listfiles():
-    removefile("ext.txt")
-if "ext.txt.a" in listfiles():
-    removefile("ext.txt.a")
-if "ext.txt.b" in listfiles():
-    removefile("ext.txt.b")
+if "test4.txt" in listfiles():
+    removefile("test4.txt")
+if "test4.txt.a" in listfiles():
+    removefile("test4.txt.a")
+if "test4.txt.b" in listfiles():
+    removefile("test4.txt.b")
 
-myfile = ABopenfile("ext.txt", True)
+myfile = ABopenfile("test4.txt", True)
 myfile.writeat("S", 0)
-myfile.writeat("E", 5)
-myfile.close()
-
-myfile = ABopenfile("ext.txt", True)
-myfile.writeat("toolong", 10)
+myfile.writeat("X", 5)
+myfile.writeat("E", 3)
 myfile.close()
