@@ -1,0 +1,10 @@
+if "space1.txt" in listfiles():
+    removefile("space1.txt")
+if "space1.txt.a" in listfiles():
+    removefile("space1.txt.a")
+if "space1.txt.b" in listfiles():
+    removefile("space1.txt.b")
+
+myfile = ABopenfile("space1.txt", True)
+myfile.writeat(" SdataE", 0)
+myfile.close()
