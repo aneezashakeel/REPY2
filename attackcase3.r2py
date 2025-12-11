@@ -1,15 +1,15 @@
-if "race1.txt" in listfiles():
-    removefile("race1.txt")
-if "race1.txt.a" in listfiles():
-    removefile("race1.txt.a")
-if "race1.txt.b" in listfiles():
-    removefile("race1.txt.b")
+if "test3.txt" in listfiles():
+    removefile("test3.txt")
+if "test3.txt.a" in listfiles():
+    removefile("test3.txt.a")
+if "test3.txt.b" in listfiles():
+    removefile("test3.txt.b")
 
-myfile = ABopenfile("race1.txt", True)
+myfile = ABopenfile("test3.txt", True)
 myfile.close()
 
-h1 = ABopenfile("race1.txt", True)
-h2 = ABopenfile("race1.txt", True)
+h1 = ABopenfile("test3.txt", True)
+h2 = ABopenfile("test3.txt", True)
 h1.writeat("SvalidE", 0)
 h2.writeat("BadData", 0)
 h1.close()
