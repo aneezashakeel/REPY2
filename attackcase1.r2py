@@ -1,10 +1,11 @@
-if "test1.txt" in listfiles():
-    removefile("test1.txt")
-if "test1.txt.a" in listfiles():
-    removefile("test1.txt.a")
-if "test1.txt.b" in listfiles():
-    removefile("test1.txt.b")
+if "len1.txt" in listfiles():
+    removefile("len1.txt")
+if "len1.txt.a" in listfiles():
+    removefile("len1.txt.a")
+if "len1.txt.b" in listfiles():
+    removefile("len1.txt.b")
 
-myfile = ABopenfile("test1.txt", True)
-myfile.writeat("XinvalidX", 0)
+myfile = ABopenfile("len1.txt", True)
+myfile.writeat("S", 0)
+myfile.writeat("E", 5000000)
 myfile.close()
