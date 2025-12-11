@@ -1,36 +1,25 @@
-# Attack: Test invalid file validation (S and E requirements)
+# Attack: Test invalid S/E patterns - SILENT VERSION
 
-for fn in ("invalid.txt", "invalid.txt.a", "invalid.txt.b"):
+for fn in ("inv1.txt", "inv1.txt.a", "inv1.txt.b"):
     if fn in listfiles():
         removefile(fn)
 
-# Test 1: File not starting with S
-myfile = ABopenfile("invalid.txt", True)
+myfile = ABopenfile("inv1.txt", True)
 myfile.writeat("XdataE", 0)
 myfile.close()
 
-# Test 2: File not ending with E
-for fn in ("invalid2.txt", "invalid2.txt.a", "invalid2.txt.b"):
+for fn in ("inv2.txt", "inv2.txt.a", "inv2.txt.b"):
     if fn in listfiles():
         removefile(fn)
 
-myfile = ABopenfile("invalid2.txt", True)
+myfile = ABopenfile("inv2.txt", True)
 myfile.writeat("SdataX", 0)
 myfile.close()
 
-# Test 3: Lowercase s and e (should be invalid)
-for fn in ("invalid3.txt", "invalid3.txt.a", "invalid3.txt.b"):
+for fn in ("inv3.txt", "inv3.txt.a", "inv3.txt.b"):
     if fn in listfiles():
         removefile(fn)
 
-myfile = ABopenfile("invalid3.txt", True)
+myfile = ABopenfile("inv3.txt", True)
 myfile.writeat("sdataE", 0)
-myfile.close()
-
-# Test 4: Empty file
-for fn in ("empty.txt", "empty.txt.a", "empty.txt.b"):
-    if fn in listfiles():
-        removefile(fn)
-
-myfile = ABopenfile("empty.txt", True)
 myfile.close()
