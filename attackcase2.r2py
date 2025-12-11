@@ -1,11 +1,12 @@
-if "b.txt" in listfiles():
-    removefile("b.txt")
-if "b.txt.a" in listfiles():
-    removefile("b.txt.a")
-if "b.txt.b" in listfiles():
-    removefile("b.txt.b")
+if "x2.txt" in listfiles():
+    removefile("x2.txt")
+if "x2.txt.a" in listfiles():
+    removefile("x2.txt.a")
+if "x2.txt.b" in listfiles():
+    removefile("x2.txt.b")
 
-myfile = ABopenfile("b.txt", True)
-myfile.writeat("SXXXE", 0)
-myfile.writeat("Y", 2)
+myfile = ABopenfile("x2.txt", True)
+myfile.writeat("S", 0)
+myfile.writeat("middle", 5)
+myfile.writeat("E", 20)
 myfile.close()
